@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Afsana 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<style>
+body {
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:black;
+  color:white;
+  overflow:hidden;
+}
+
+.story {
+  position:fixed;
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+
+.slide {
+  display:none;
+  animation: fade 0.8s ease;
+}
+
+.active { display:block; }
+
+@keyframes fade {
+  from {opacity:0; transform:translateY(20px);} 
+  to {opacity:1; transform:translateY(0);} 
+}
+
+img {
+  max-width:90%;
+  border-radius:20px;
+  margin-bottom:15px;
+  box-shadow:0 0 20px rgba(255,255,255,0.2);
+}
+
+button {
+  padding:12px 20px;
+  border:none;
+  border-radius:30px;
+  background:#ff4081;
+  color:white;
+  font-size:16px;
+}
+
+.hidden-btn {
+  position:absolute;
+  bottom:20px;
+  right:20px;
+  opacity:0.1;
+}
+
+.game-box {
+  font-size:22px;
+}
+
+</style>
+</head>
+<body>
+
+<audio id="bgMusic" autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
+
+<div class="story">
+
+<!-- Slide 1 -->
+<div class="slide active">
+  <h1>Hey Afsana 👀</h1>
+  <p>Tap to start your surprise 💖</p>
+  <button onclick="nextSlide()">Start</button>
+</div>
+
+<!-- Slide 2 (Photo) -->
+<div class="slide">
+  <img src="photo1.jpg">
+  <p>Some memories deserve to be replayed forever ✨</p>
+  <button onclick="nextSlide()">Next</button>
+</div>
+
+<!-- Slide 3 -->
+<div class="slide">
+  <img src="photo2.jpg">
+  <p>You are not just my best friend… you are my comfort ❤️</p>
+  <button onclick="nextSlide()">Next</button>
+</div>
+
+<!-- Slide 4 Mini Game -->
+<div class="slide">
+  <div class="game-box">
+    <p>Mini Game 🎮</p>
+    <p>Guess my favorite person?</p>
+    <button onclick="wrong()">Someone else</button>
+    <button onclick="correct()">You ❤️</button>
+  </div>
+</div>
+
+<!-- Slide 5 -->
+<div class="slide">
+  <p>"Some people make your life better just by being in it" 💫</p>
+  <button onclick="nextSlide()">Next</button>
+</div>
+
+<!-- Slide 6 Secret -->
+<div class="slide">
+  <p>There's a secret here 👀 find it...</p>
+  <button class="hidden-btn" onclick="secret()">.</button>
+  <button onclick="nextSlide()">Skip</button>
+</div>
+
+<!-- Final Slide -->
+<div class="slide">
+  <h1>🎉 HAPPY BIRTHDAY AFSANA 🎉</h1>
+  <p>
+    You are one of the most special people in my life 💖<br>
+    I hope your life is filled with happiness, success, and crazy memories ✨<br><br>
+    — From your best friend 💌
+  </p>
+</div>
+
+</div>
+
+<script>
+let current = 0;
+const slides = document.querySelectorAll('.slide');
+
+function nextSlide() {
+  slides[current].classList.remove('active');
+  current++;
+  if(current < slides.length) {
+    slides[current].classList.add('active');
+  }
+}
+
+function correct() {
+  alert("Correct 😄 I knew you'd get it!");
+  nextSlide();
+}
+
+function wrong() {
+  alert("Nope 😜 Try again!");
+}
+
+function secret() {
+  alert("💖 Secret: You mean the world to me, Afsana.");
+}
+</script>
+
+</body>
+</html>
